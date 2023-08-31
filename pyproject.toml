@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "ml-api"
+version = "0.1.0"
+description = ""
+authors = ["Ying Xiang <f416720001@yahoo.com.tw>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sympy = "^1.12"
+transformers = "*"
+pillow = "*"
+torch = {version = "^2.0.1+cpu", source = "pytorch"}
+torchvision = {version = "^0.15.2+cpu", source = "pytorch"}
+fastapi = "^0.103.0"
+uvicorn = "^0.23.2"
+loguru = "^0.7.0"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
