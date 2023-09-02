@@ -1,6 +1,6 @@
-# Huggingface Playground
+# Hugservice Playground
 
-- [Huggingface Playground](#huggingface-playground)
+- [Hugservice Playground](#hugservice-playground)
   - [Feature](#feature)
   - [Quick Start](#quick-start)
   - [Dev](#dev)
