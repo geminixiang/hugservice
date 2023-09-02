@@ -14,8 +14,6 @@ pillow = "*"
 fastapi = "^0.103.0"
 uvicorn = "^0.23.2"
 loguru = "^0.7.0"
-torch = {version = "^2.0.1+cu118", source = "pytorch"}
-torchvision = {version = "^0.15.2+cu118", source = "pytorch"}
 
 [[tool.poetry.source]]
 name = "pytorch"
@@ -24,6 +22,8 @@ priority = "explicit"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.3.3"
+torch = {version = "^2.0.1+cu118", source = "pytorch"}
+torchvision = {version = "^0.15.2+cu118", source = "pytorch"}
 
 [build-system]
 requires = ["poetry-core"]

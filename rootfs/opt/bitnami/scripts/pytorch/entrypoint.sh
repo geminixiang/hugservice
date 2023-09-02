@@ -37,7 +37,5 @@ find_jemalloc_lib() {
 LD_PRELOAD="$(find_jemalloc_lib)${LD_PRELOAD:+ "$LD_PRELOAD"}"
 export LD_PRELOAD
 
-print_welcome_page
-
 echo ""
 exec "$@"
