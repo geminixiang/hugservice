@@ -1,5 +1,6 @@
 *.jpg
 *.whl
 *.pyc
+requirements.txt
 
 .vscode/
