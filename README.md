@@ -19,7 +19,7 @@
 
 ## Quick Start
 ```shell
-poetry shell && poetry install
+poetry shell && poetry install --with dev
 uvicorn main:app --reload
 ```
 
