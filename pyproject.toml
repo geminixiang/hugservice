@@ -7,12 +7,10 @@ readme = "README.md"
 packages = []
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 sympy = "^1.12"
 transformers = "*"
 pillow = "*"
-torch = {version = "^2.0.1+cpu", source = "pytorch"}
-torchvision = {version = "^0.15.2+cpu", source = "pytorch"}
 fastapi = "^0.103.0"
 uvicorn = "^0.23.2"
 loguru = "^0.7.0"
@@ -22,9 +20,10 @@ name = "pytorch"
 url = "https://download.pytorch.org/whl/cu118"
 priority = "explicit"
 
-
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.3.3"
+torch = {version = "^2.0.1+cu118", source = "pytorch"}
+torchvision = {version = "^0.15.2+cu118", source = "pytorch"}
 
 [build-system]
 requires = ["poetry-core"]
