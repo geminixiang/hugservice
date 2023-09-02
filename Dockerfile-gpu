@@ -1,3 +1,4 @@
+# inspired by https://github.com/docker-library/python/blob/master/3.10/slim-bullseye/Dockerfile
 FROM nvidia/cuda:12.2.0-base-ubuntu20.04 AS app
 
 # ensure local python is preferred over distribution python
@@ -161,5 +162,7 @@ RUN set -eux; \
 	rm -f get-pip.py; \
 	\
 	pip --version
+
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 CMD ["python3"]
