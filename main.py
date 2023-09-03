@@ -4,7 +4,7 @@ from fastapi.responses import FileResponse
 
 from config import settings
 from models import ObjectDetectionResult
-from huggingface import blip_image_captioning_large, yolo
+from huggingface import blip_image_captioning_large, yolos_tiny
 
 app = FastAPI()
 
@@ -25,7 +25,7 @@ def detect(url: str) -> ObjectDetectionResult:
     """
     Detect objects in an image from a URL
     """
-    return yolo(url)
+    return yolos_tiny(url)
 
 
 @app.get(
