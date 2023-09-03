@@ -30,6 +30,7 @@ torchvision = {version = "^0.15.2+cu118", source = "pytorch"}
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.1"
 syrupy = "^4.5.0"
+pytest-cov = "^4.1.0"
 
 [build-system]
 requires = ["poetry-core"]
