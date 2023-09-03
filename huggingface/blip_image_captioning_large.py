@@ -1,5 +1,4 @@
 import requests
-import torch
 from loguru import logger
 from PIL import Image
 from transformers import BlipForConditionalGeneration, BlipProcessor

@@ -19,14 +19,19 @@ def yolos_tiny(url: str) -> ObjectDetectionResult:
     Returns:
         ObjectDetectionResult: object detection result
     """
-    model = YolosForObjectDetection.from_pretrained("hustvl/yolos-tiny").to(settings.compute_mode)
+    model = YolosForObjectDetection.from_pretrained(
+        "hustvl/yolos-tiny"
+    ).to(settings.compute_mode)
     image_processor = YolosImageProcessor.from_pretrained(
         "hustvl/yolos-tiny", torch_dtype=torch.float16
     )
 
     image = Image.open(requests.get(url, stream=True).raw)
     logger.info(f"Downloaded image from {url}")
-    inputs = image_processor(images=image, return_tensors="pt").to(settings.compute_mode)  # type: ignore
+    inputs = image_processor(
+        images=image,
+        return_tensors="pt"
+    ).to(settings.compute_mode)  # type: ignore
     outputs = model(**inputs)  # type: ignore
 
     target_sizes = torch.tensor([image.size[::-1]])
