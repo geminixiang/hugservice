@@ -1,16 +1,18 @@
+from loguru import logger
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
-from loguru import logger
 
-from huggingface import blip_image_captioning_large, yolo
+from config import settings
 from models import ObjectDetectionResult
+from huggingface import blip_image_captioning_large, yolo
 
 app = FastAPI()
 
 
 @app.on_event("startup")
 def startup() -> None:
-    logger.info("Model loaded")
+    logger.info(f"Starting up {settings.app_name}...")
+    logger.info(f"Compute mode is {settings.compute_mode}.")
 
 
 @app.get(
