@@ -4,7 +4,7 @@ from fastapi.responses import FileResponse
 
 from config import settings
 from models import ObjectDetectionResult
-from huggingface import blip_image_captioning_large, yolos_tiny
+from huggingface import blip_image_captioning_large, yolos_tiny, speecht5_tts
 
 app = FastAPI()
 
@@ -37,7 +37,20 @@ def detect(url: str) -> ObjectDetectionResult:
 def img2txt(url: str) -> str:
     return blip_image_captioning_large(url)
 
+@app.get(
+    "/tts",
+    name="Detect objects in an image from a URL",
+    tags=["HuggingFace"],
+    response_model=str,
+)
+def tts(text: str) -> str:
+    return speecht5_tts(text)
 
 @app.get("/img/{file_name}", name="Get modified image", tags=["general"])
 def get_image(file_name: str):
     return FileResponse(f"outputs/{file_name}", media_type="image/jpeg")
+
+
+@app.get("/audio/{file_name}", name="Get audio", tags=["general"])
+def get_image(file_name: str):
+    return FileResponse(f"outputs/{file_name}", media_type="audio/mpeg")

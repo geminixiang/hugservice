@@ -1,4 +1,5 @@
 *.jpg
+*.wav
 *.whl
 *.pyc
 .coverage

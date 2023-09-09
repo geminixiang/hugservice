@@ -19,6 +19,7 @@
 - [x] Support model
   - [x] [yolos-tiny](https://huggingface.co/hustvl/yolos-tiny)
   - [x] [blip_image_captioning_large](https://huggingface.co/Salesforce/blip-image-captioning-large)
+  - [x] [speecht5_tts](https://huggingface.co/microsoft/speecht5_tts)
 - [x] Dockerize: [GPU](https://github.com/geminixiang/huggingface-service/pull/1)
 
 ## Quick Start
