@@ -15,22 +15,25 @@ fastapi = "^0.103.0"
 uvicorn = "^0.23.2"
 loguru = "^0.7.0"
 pydantic-settings = "^2.0.3"
-
-[[tool.poetry.source]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cu118"
-priority = "explicit"
+datasets = "^2.14.5"
+soundfile = "^0.12.1"
+speechbrain = "^0.5.15"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^3.3.3"
-torch = {version = "^2.0.1+cu118", source = "pytorch"}
-torchvision = {version = "^0.15.2+cu118", source = "pytorch"}
-
+pre-commit= "^3.3.3"
+torch = "*"
+poethepoet = "*"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.1"
 syrupy = "^4.5.0"
 pytest-cov = "^4.1.0"
+
+# https://blog.philip-huang.tech/?page=poetry-and-pytorch
+[tool.poe.tasks]
+install-ltt = "python -m pip install light-the-torch"
+run-ltt = "python -m light_the_torch install --upgrade torch torchvision"
+torch-cuda = ["install-ltt", "run-ltt"]
 
 [build-system]
 requires = ["poetry-core"]
